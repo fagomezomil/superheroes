@@ -1,9 +1,17 @@
 import React from 'react'
+import heroes from '../utils/heroes'
+import HeroesList from '../components/HeroesList'
 
-export default function Home() {
+
+const Home = () => {
+
+    const superheroes = heroes
+
   return (
-    <div className='bg-slate-500'>
-      <p>Inicio!!!</p>
-    </div>
+    <>
+        <HeroesList superheroes={superheroes}/>
+    </>
   )
 }
+
+export default Home
