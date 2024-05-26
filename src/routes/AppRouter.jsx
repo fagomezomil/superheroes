@@ -4,6 +4,7 @@ import MarvelHeroes from '../pages/MarvelHeroes'
 import DcHeroes from '../pages/DcHeroes'
 import SearchHeroes from '../pages/SearchHeroes'
 import Layout from '../components/Layout'
+import FichaCompleta from '../pages/FichaCompleta'
 
 export default function AppRouter() {
   return (
@@ -15,6 +16,7 @@ export default function AppRouter() {
           <Route path="/marvel" element={<MarvelHeroes />} />
           <Route path="/dc" element={<DcHeroes />} />
           <Route path="/search" element={<SearchHeroes />} />
+          <Route path='/fichacompleta/:id' element={<FichaCompleta />}/>
         </Routes>
         </Layout>
      </BrowserRouter> 

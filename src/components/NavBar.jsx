@@ -1,27 +1,52 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { FaMagnifyingGlass } from "react-icons/fa6";
 const Navbar = () => {
+  const enlaces = [
+    {
+      to: 'home',
+      label: <Link to='/'>Home</Link>,
+    },
+    {
+      to: 'dc',
+      label: <Link to='/dc'>DC</Link>,
+    },
+    {
+      to: 'marvel',
+      label: <Link to='/marvel'>Marvel</Link>,
+    },
+    {
+      to: 'search',
+      icon: <FaMagnifyingGlass />,
+      label: <Link to='/search'>Buscar</Link>,
+    },
+  ];
+  
+  const IrArriba = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
-    <nav className="bg-cyan-900">
+    <nav className="bg-gradient-to-br from-[rgba(6,75,147,1)] via-[rgba(17,61,103,1)] to-[rgba(34,55,77,1)]  sticky top-8 z-30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
-            <Link to="/" className="text-white font-bold text-xl">
-              Tus Heroes
+          <div>
+            <Link to="/" className="text-white font-semibold text-3xl italic flex items-center">
+              <img src="../images/logosuper.png" alt="" className='mr-4 drop-shadow-md' />
+              Fantastic Heroes!
             </Link>
           </div>
           <div>
-            <div className="flex items-center">
-              <Link to="/dc" className="text-gray-300 hover:text-white mx-4">
-                DC
-              </Link>
-              <Link to="/marvel" className="text-gray-300 hover:text-white mx-4">
-                Marvel
-              </Link>
-              <Link to="/search" className="text-gray-300 hover:text-white mx-4">
-                Search
-              </Link>
+            <div className="flex">
+              {enlaces.map((enlace) => (
+                <Link key={enlace.to} to={enlace.to} onClick={IrArriba} className="text-white font-semibold hover:text-white mx-4">
+                  <div className='flex items-center'>
+                    <div className='mr-2'>{enlace.icon}</div>
+                    {enlace.label}
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

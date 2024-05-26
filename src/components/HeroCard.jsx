@@ -1,30 +1,24 @@
+import { useNavigate } from 'react-router-dom'
 import { Card } from 'antd'
 import Meta from 'antd/es/card/Meta'
-import { useNavigate } from 'react-router-dom'
 
-const HeroCard = ({superheroe}) => {
-
+const HeroCard = ({ superheroe }) => {
   const navigate = useNavigate()
-
-  const navegarADetalle = () => {
-    navigate(`/detalle/${superheroe.id}`)
+  const fichaCompleta = () => {
+    navigate(`/fichacompleta/${superheroe.id}`)
   }
 
   return (
     <>
-        <Card
-          onClick={navegarADetalle}
-          hoverable
-          className='w-fit m-4'
-          cover={<img alt={superheroe.alter_ego} src={superheroe.url} height={350}
-          style={{
-            objectFit: 'cover',
-            objectPosition: 'top'
-          }}/>}
-        >
-          <Meta title={superheroe.superhero} description={superheroe.alter_ego} />
-          <h4 style={{fontWeight: '500', textAlign: 'center', marginBottom: 0, color: '#484848', fontSize: '14px'}}>Ver detalle</h4>
-        </Card>
+      <Card
+        hoverable
+        className='w-fit m-4'
+        cover={<img alt={superheroe.alter_ego} src={superheroe.url} height={350}
+        onClick={fichaCompleta}
+        />}>
+          <p className='font-bold text-xs text-white bg-gray-400 rounded-md w-fit py-1 px-2 mb-2'>Ver historia</p>
+        <Meta title={superheroe.superhero} description={superheroe.alter_ego} />
+      </Card>
     </>
   )
 }
