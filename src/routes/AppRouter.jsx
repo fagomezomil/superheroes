@@ -1,25 +1,26 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from '../pages/Home'
-import MarvelHeroes from '../pages/MarvelHeroes'
-import DcHeroes from '../pages/DcHeroes'
-import SearchHeroes from '../pages/SearchHeroes'
-import Layout from '../components/Layout'
-import FichaCompleta from '../pages/FichaCompleta'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import Home from '../pages/Home';
+import MarvelHeroes from '../pages/MarvelHeroes';
+import DcHeroes from '../pages/DcHeroes';
+import SearchHeroes from '../pages/SearchHeroes';
+import Layout from '../components/Layout';
+import FichaCompleta from '../pages/FichaCompleta';
 
 export default function AppRouter() {
   return (
     <>
-     <BrowserRouter>
+      <BrowserRouter>
         <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/marvel" element={<MarvelHeroes />} />
-          <Route path="/dc" element={<DcHeroes />} />
-          <Route path="/search" element={<SearchHeroes />} />
-          <Route path='/fichacompleta/:id' element={<FichaCompleta />}/>
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/marvel" element={<MarvelHeroes />} />
+            <Route path="/dc" element={<DcHeroes />} />
+            <Route path="/search" element={<SearchHeroes />} />
+            <Route path="/fichacompleta/:id" element={<FichaCompleta />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
         </Layout>
-     </BrowserRouter> 
+      </BrowserRouter>
     </>
-  )
+  );
 }
