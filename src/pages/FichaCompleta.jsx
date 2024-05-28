@@ -13,18 +13,25 @@ export default function FichaCompleta() {
     const previousHero = index > 0 ? heroes[index - 1] : null;
     const nextHero = index < heroes.length - 1 ? heroes[index + 1] : null;
 
+    const IrArriba = () => {
+        window.scrollTo({
+          top: 400,
+          behavior: 'smooth',
+        });
+      };
+
     return (
         <div className='max-w-7xl mx-auto py-20 px-8 grid grid-cols-6 gap-32'>
             <div className='col-span-4'>
                 <h1 className='text-3xl font-semibold text-sky-900'>Las Historias de {superheroe.superhero}</h1>
                 <p className='uppercase text-gray-600 text-sm font-semibold'>Publicado por: {superheroe.publisher}</p>
                 <p className='mt-6'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia consequuntur, perferendis quisquam expedita sapiente culpa explicabo accusamus quasi ad odit porro earum facilis minima, maiores provident, reprehenderit incidunt nemo similique enim eaque impedit modi quas vero ex! Dolorum aliquid aspernatur quis fugiat dolore, officia repellat nam, tempore cumque quasi impedit nostrum, corrupti iure ex voluptatibus ipsam. Voluptates, quisquam? Illo libero, nisi quod magnam sequi sunt fugit obcaecati. Nemo enim quos recusandae eligendi cumque minima eos quibusdam ipsam suscipit, iure natus inventore quaerat ducimus, quidem cupiditate nesciunt optio, adipisci facere ex possimus nihil. Id, ad voluptatem corporis totam molestias perferendis quibusdam.
-                    <br />
-                    <br />
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto iure consectetur enim, est nesciunt, fuga hic quibusdam quisquam officia ratione placeat animi saepe nobis iusto eos aliquid corrupti, expedita deleniti a. Aperiam dolore minus quia natus nam, cumque consequatur repellat! Minima omnis molestiae nesciunt eum sequi ad at a? Repellendus blanditiis doloremque cumque eum nesciunt molestias animi. Iure itaque impedit quae, voluptatibus fugit laboriosam aliquid aspernatur id esse accusantium quaerat!
-                    <br />
-                    <br />
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi reiciendis expedita eos hic amet iure, repellendus exercitationem, quasi ipsam animi ab eum quae numquam nihil magnam. Voluptates mollitia quia doloremque cum odio? Ab rerum et maxime facere consequuntur, harum a iste, dolorum assumenda voluptate delectus tenetur omnis cumque totam perferendis illo repellendus quam ipsam ullam explicabo voluptas magnam ea! Sunt.
+                <br />
+                <br />
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto iure consectetur enim, est nesciunt, fuga hic quibusdam quisquam officia ratione placeat animi saepe nobis iusto eos aliquid corrupti, expedita deleniti a. Aperiam dolore minus quia natus nam, cumque consequatur repellat! Minima omnis molestiae nesciunt eum sequi ad at a? Repellendus blanditiis doloremque cumque eum nesciunt molestias animi. Iure itaque impedit quae, voluptatibus fugit laboriosam aliquid aspernatur id esse accusantium quaerat!
+                <br />
+                <br />
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi reiciendis expedita eos hic amet iure, repellendus exercitationem, quasi ipsam animi ab eum quae numquam nihil magnam. Voluptates mollitia quia doloremque cum odio? Ab rerum et maxime facere consequuntur, harum a iste, dolorum assumenda voluptate delectus tenetur omnis cumque totam perferendis illo repellendus quam ipsam ullam explicabo voluptas magnam ea! Sunt.
                 </p>
             </div>
             <div className='col-span-2'>
@@ -45,7 +52,7 @@ export default function FichaCompleta() {
             </div>
             <div className='flex text-center min-w-[500px] '>
                 {previousHero && (
-                    <Link to={`/fichacompleta/${previousHero.id}`}>
+                    <Link to={`/fichacompleta/${previousHero.id}`}  onClick={IrArriba} >
                         <div className='text-white bg-gray-500 rounded-md flex py-1 px-2 mr-4 items-center'>
                             <i className='text-sm mx-2'>{previousHero.superhero}</i>
                             <FaArrowAltCircleLeft />
@@ -55,7 +62,7 @@ export default function FichaCompleta() {
                     </Link>
                 )}
                 {nextHero && (
-                    <Link to={`/fichacompleta/${nextHero.id}`}>
+                    <Link to={`/fichacompleta/${nextHero.id}`} onClick={IrArriba} >
                         <div className='text-white bg-gray-500 rounded-md flex py-1 px-2 mr-4 items-center'>
                             <p className='mx-2'>Siguiente</p>
                             <FaArrowAltCircleRight />

@@ -4,20 +4,20 @@ const Navbar = () => {
   const enlaces = [
     {
       to: 'home',
-      label: <Link to='/'>Home</Link>,
+      label: 'Home',
     },
     {
       to: 'dc',
-      label: <Link to='/dc'>DC</Link>,
+      label: 'DC',
     },
     {
       to: 'marvel',
-      label: <Link to='/marvel'>Marvel</Link>,
+      label: 'Marvel',
     },
     {
       to: 'search',
       icon: <FaMagnifyingGlass />,
-      label: <Link to='/search'>Buscar</Link>,
+      label: 'Buscar',
     },
   ];
   
@@ -32,7 +32,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div>
-            <Link to="/" className="text-white font-semibold text-3xl italic flex items-center">
+            <Link to="/" onClick={IrArriba} className="text-white font-semibold text-3xl italic flex items-center">
               <img src="../images/logosuper.png" alt="" className='mr-4 drop-shadow-md' />
               Fantastic Heroes!
             </Link>
